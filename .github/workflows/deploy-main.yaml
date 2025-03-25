@@ -1,4 +1,4 @@
-name: Deploy to Firebase Hosting
+name: Deploy to Firebase Hosting main
 
 on:
   workflow_dispatch:
@@ -17,6 +17,8 @@ jobs:
 
       - name: Deploy to Firebase Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
+        env:
+          FIREBASE_ENVIRONMENT: '${{ vars.MAIN_ENV }}'
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_FIREBASE_DEPLOY_TEST_8FB5E }}'
